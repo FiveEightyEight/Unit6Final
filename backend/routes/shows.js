@@ -2,7 +2,7 @@ const ShowServices = require('../services/shows');
 const ShowRouter = require('express').Router();
 
 ShowRouter.get('/all', (req, res) => {
-    ShowServices.getAllShows()
+    ShowServices.getAllShowsWithUsers()
         .then(data => {
             res.status(200)
                 .json(data);

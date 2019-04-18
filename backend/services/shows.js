@@ -6,6 +6,14 @@ const getAllShows = () => {
     FROM shows;`);
 };
 
+const getAllShowsWithUsers = () => {
+    return db.any(`
+    SELECT shows.id AS show_id, *
+    FROM users
+    JOIN shows
+    ON users.id = shows.user_id;`);
+};
+
 const byGenre = (genre) => {
     return db.any(`
     SELECT * FROM shows
@@ -58,4 +66,5 @@ module.exports = {
     byShowTitle,
     byUser,
     getAllShows,
+    getAllShowsWithUsers,
 };
