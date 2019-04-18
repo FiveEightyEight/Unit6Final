@@ -15,7 +15,7 @@ ShowRouter.get('/all', (req, res) => {
         });
 });
 
-ShowRouter.get('/all/:user_id', (req, res, next) => {
+ShowRouter.get('/all/user/:user_id', (req, res, next) => {
     const { user_id } = req.params;
     if (!id.match(/[0-9]/g)) next();
     ShowServices.byUser(user_id)
@@ -31,9 +31,9 @@ ShowRouter.get('/all/:user_id', (req, res, next) => {
         });
 });
 
-ShowRouter.get('/all/:genre', (req, res) => {
-    const { genre } = req.params;
-    ShowServices.byGenre(genre)
+ShowRouter.get('/all/genre/:genre_id', (req, res) => {
+    const { genre_id } = req.params;
+    ShowServices.byGenre(genre_id)
         .then(data => {
             res.status(200)
                 .json(data);
