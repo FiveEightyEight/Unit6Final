@@ -47,7 +47,11 @@ ShowRouter.get('/all/genre/:genre_id', (req, res) => {
 
 ShowRouter.get('/:id', (req, res, next) => {
     const { id } = req.params;
-    if (!id.match(/[0-9]/g)) next();
+    if (!id.match(/[0-9]/g))
+    {
+        next();
+        return;
+    };
     ShowServices.byShowId(id)
         .then(data => {
             res.status(200)
