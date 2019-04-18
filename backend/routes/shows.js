@@ -2,6 +2,20 @@ const ShowServices = require('../services/shows');
 const ShowRouter = require('express').Router();
 
 ShowRouter.get('/all', (req, res) => {
+    ShowServices.getAllShows()
+        .then(data => {
+            res.status(200)
+                .json(data);
+        })
+        .catch(err => {
+            res.status(400)
+                .json({
+                    message: 'error fetching all shows',
+                });
+        });
+});
+
+ShowRouter.get('/all/users', (req, res) => {
     ShowServices.getAllShowsWithUsers()
         .then(data => {
             res.status(200)
