@@ -29,7 +29,11 @@ ___
 ## **/shows**
 - **[GET]** `/shows/all`
     > Returns list of all shows in database.
-    - > _Note:_ This will return shows with duplicate names.
+    - > _Note:_ This will return shows with duplicate show names.
+
+ - **[GET]** `/shows/all/users`
+    > Returns list of all shows in database including user data.
+    - > _Note:_ This will return shows with duplicate show names.
  
 - **[GET]** `/shows/all/user/:user_id`
     > Returns list of all shows followed by user matching id (_number_)
