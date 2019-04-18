@@ -15,9 +15,8 @@ ShowRouter.get('/all', (req, res) => {
         });
 });
 
-ShowRouter.get('/all/user/:user_id', (req, res, next) => {
+ShowRouter.get('/all/user/:user_id', (req, res) => {
     const { user_id } = req.params;
-    if (!id.match(/[0-9]/g)) next();
     ShowServices.byUser(user_id)
         .then(data => {
             res.status(200)
