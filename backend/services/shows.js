@@ -18,7 +18,8 @@ const byGenre = (genre) => {
 
 const byUser = (user_id) => {
     return db.any(`
-    SELECT * FROM shows
+    SELECT shows.id AS show_id, users.id AS user_id, * 
+    FROM shows
     JOIN users
     ON shows.user_id = users.id
     WHERE shows.user_id = $[user_id];`, {
