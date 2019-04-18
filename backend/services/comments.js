@@ -2,7 +2,7 @@ const { db } = require('./db');
 
 const getAllShowComments = (show_id) => {
     return db.any(`
-    SELECT *
+    SELECT comments.id AS comment_id, *
     FROM comments
     JOIN shows
     ON comments.show_id = shows.id
