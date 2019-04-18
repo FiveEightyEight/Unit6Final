@@ -1,6 +1,6 @@
 const app = require('express')();
 const bodyParser = require('body-parser')
-const { UserRouter, GenreRouter, ShowRouter} = require('./routes/index');
+const { UserRouter, GenreRouter, ShowRouter } = require('./routes/index');
 const cors = require('cors');
 
 app.use(cors())
