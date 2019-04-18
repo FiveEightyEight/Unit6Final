@@ -58,7 +58,7 @@ ___
     > Returns list of all comments for a specific show based on its id (_number string_)
 
 - **[POST]** `/comments/`
-    > Create new comment, requires  **_`comment_body, user_id, show_id `_** passed through the body. Returns show _id_ that was created.
+    > Create new comment, requires  **_`comment_body, user_id, show_id `_** passed through the body. Returns comment _id_ that was created.
    -  > Input: `'{ 
     "comment_body": (_string_), 
     "user_id": (_number string_),
