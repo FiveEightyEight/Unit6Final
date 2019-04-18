@@ -1,6 +1,6 @@
 const app = require('express')();
 const bodyParser = require('body-parser')
-const { UserRouter } = require('./routes/index');
+const { UserRouter, GenreRouter } = require('./routes/index');
 const cors = require('cors');
 
 app.use(cors())
@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/users', UserRouter);
+app.use('/genres', GenreRouter);
 
 app.get('/', (req, res) => {
     res.status(200).json({
