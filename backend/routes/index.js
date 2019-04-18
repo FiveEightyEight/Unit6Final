@@ -1,7 +1,5 @@
-const UserRouter = require('./users');
-const GenreRouter = require('./genres');
-
 module.exports = {
-    UserRouter,
-    GenreRouter,
+    UserRouter: require('./users'),
+    GenreRouter: require('./genres'),
+    ShowRouter: require('./shows'),
 };
