@@ -2,10 +2,10 @@
 
 ||Table Of Contents|
 |:--|:----:|
-|1| [Users](http://temp)|
-|2| [Genres](http://temp)|
-|3| [Shows](http://temp)|
-|4| [Comments](http://temp)|
+|1| [Users](https://github.com/FiveEightyEight/Unit6Final/tree/BE_Routes%26Services/backend#users)|
+|2| [Genres](https://github.com/FiveEightyEight/Unit6Final/tree/BE_Routes%26Services/backend#genres)|
+|3| [Shows](https://github.com/FiveEightyEight/Unit6Final/tree/BE_Routes%26Services/backend#shows)|
+|4| [Comments](https://github.com/FiveEightyEight/Unit6Final/tree/BE_Routes%26Services/backend#comments)|
 
 ___
 ## **/users**
