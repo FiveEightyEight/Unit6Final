@@ -1,6 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Divider, List, ListItem, ListItemText } from '@material-ui/core/';
+import { Divider, List, ListItem, ListItemText, ListItemIcon } from '@material-ui/core/';
+import { Person } from '@material-ui/icons/';
 import { Link } from 'react-router-dom';
 
 
@@ -17,22 +18,26 @@ const styles = {
 };
 
 export default withStyles(styles)(props => {
-    const { classes, list } = props;
-    console.log(list)
+    const { classes, list, userID } = props;
     return (
         <List component="nav" className={classes.root}>
             {
                 list.map((e, i, arr) => {
                     const { id, username } = e;
                     return (
-                        <Link to={'user/' + id} key={id}>
+                        <React.Fragment key={i}>
                             <ListItem>
-
-                                <ListItemText primary={username} />
-
+                                <Link to={'user/' + id} className={classes.link}>
+                                    <ListItemText primary={username} />
+                                </Link>
+                                {(userID === id) ? <></> : (
+                                    <Link to={'switch/' + id} className={classes.link}>
+                                        <ListItemIcon children={<Person />} />
+                                    </Link>
+                                )}
                             </ListItem>
                             {(arr.length - 1 === i) ? <></> : <Divider />}
-                        </Link>
+                        </React.Fragment>
                     );
                 })
             }
