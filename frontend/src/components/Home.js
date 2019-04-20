@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Grid, Paper, Typography } from '@material-ui/core/';
+import { CircularProgress, Grid, Paper, Typography } from '@material-ui/core/';
 
 const styles = {
     block: {
@@ -15,7 +15,7 @@ const styles = {
 };
 
 export default withStyles(styles)(props => {
-    const { classes } = props;
+    const { classes, spinner } = props;
     return (
 
         <Grid container
@@ -31,7 +31,7 @@ export default withStyles(styles)(props => {
                         justify="center"
                         alignItems="center"
                     >
-                        <Grid item xs>
+                        <Grid item xs={12}>
                             <Typography variant='h4'
                                 align='center'
                                 gutterBottom={true}
@@ -39,6 +39,14 @@ export default withStyles(styles)(props => {
                                 Welcome to the TV Show Watchlist App!
                             </Typography>
                         </Grid>
+                        {
+                            (spinner) ?
+                                <Grid item>
+                                    <CircularProgress />
+                                </Grid>
+                                :
+                                <></>
+                        }
                     </Grid>
                 </Paper>
             </Grid>
