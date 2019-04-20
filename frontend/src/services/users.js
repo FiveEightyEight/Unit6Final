@@ -10,7 +10,7 @@ const allUsers = () => {
 };
 
 const get = (route) => {
-    if(typeof route !== 'string') return Promise.reject('Params were invalid; must be strings');
+    if (typeof route !== 'string') return Promise.reject('Params were invalid; must be strings');
     return axios({
         url: baseURL + route,
         method: 'get',
@@ -18,7 +18,7 @@ const get = (route) => {
 };
 
 const post = (route, data) => {
-    if(typeof route !== 'string') return Promise.reject('Params were invalid; must be strings');
+    if (typeof route !== 'string') return Promise.reject('Params were invalid; must be strings');
     return axios({
         url: baseURL + route,
         method: 'post',
@@ -37,11 +37,32 @@ const fixLS = () => {
         });
 };
 
+const genres = (def = false) => {
+    get('genres/all')
+        .then(({ data }) => {
+            localStorage.setItem('showGenres', JSON.stringify(data));
+            if (def) return getGenres();
+        });
+};
+
+
+const getGenres = () => {
+    return new Promise((resolve, reject) => {
+        const genres = localStorage.getItem('showGenres');
+        if (genres === 'undefined' || !genres) return resolve(genres(true));
+        return resolve({
+            genres: JSON.parse(genres),
+        });
+    });
+};
+
 const init = () => {
     return new Promise((resolve, reject) => {
         const showUser = localStorage.getItem('showUser');
         const showUsers = localStorage.getItem('showUsers');
+        const genres = localStorage.getItem('showGenres');
         if (showUser === 'undefined' || !showUser || showUsers === 'undefined' || !showUsers) return resolve(fixLS());
+        if (genres === 'undefined' || !genres) genres();
         return resolve({
             showUser: JSON.parse(showUser),
             showUsers: JSON.parse(showUsers)
@@ -53,5 +74,6 @@ export default {
     fixLS,
     init,
     get,
-    post
+    post,
+    genres
 };
