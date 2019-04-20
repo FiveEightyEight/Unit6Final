@@ -32,6 +32,7 @@ const fixLS = () => {
     return allUsers()
         .then(({ data }) => {
             localStorage.setItem('showUser', JSON.stringify(data[0]));
+            localStorage.setItem('showUsers', JSON.stringify(data));
             return init();
         });
 };
@@ -39,8 +40,12 @@ const fixLS = () => {
 const init = () => {
     return new Promise((resolve, reject) => {
         const showUser = localStorage.getItem('showUser');
-        if (showUser === 'undefined' || !showUser) return resolve(fixLS());
-        return resolve(JSON.parse(showUser))
+        const showUsers = localStorage.getItem('showUsers');
+        if (showUser === 'undefined' || !showUser || showUsers === 'undefined' || !showUsers) return resolve(fixLS());
+        return resolve({
+            showUser: JSON.parse(showUser),
+            showUsers: JSON.parse(showUsers)
+        });
     });
 };
 
