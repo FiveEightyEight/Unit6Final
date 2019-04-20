@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Home, NavBar } from './components';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import { Provider } from './contexts/User';
+import userService from './services/users'
 
 const styles = {
   body: {
@@ -10,13 +12,37 @@ const styles = {
 }
 
 export default withStyles(styles)(class App extends Component {
+
+  state = {
+    user: null,
+  };
+
+  componentDidMount() {
+    userService.init()
+      .then(data => {
+        this.setState(() => ({
+          user: data
+        }))
+      });
+  };
+
   render() {
     const { classes } = this.props;
+    const { user } = this.state;
     return (
       <>
         <Route path='/' component={NavBar} />
         <div className={classes.body}>
-          <Route path='/' exact component={Home} />
+          {
+            (!user) ?
+                <Route path='/' exact render={()=><Home spinner={true}/>} />
+              :
+              <Switch>
+                <Provider value={user}>
+                  <Route path='/' exact component={Home} />
+                </Provider>
+              </Switch>
+          }
         </div>
       </>
     );
