@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { NavBar } from './components';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
       <>
-        <h1>Hello World</h1>
+        <Route path='/' component={NavBar}/>
       </>
     );
   }
