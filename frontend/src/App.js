@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Home, NavBar } from './components';
+import { Users } from './containers';
 import { Route, Switch } from 'react-router-dom';
 import { Provider } from './contexts/User';
 import userService from './services/users'
@@ -21,7 +22,7 @@ export default withStyles(styles)(class App extends Component {
     userService.init()
       .then(data => {
         this.setState(() => ({
-          user: data
+          user: data.showUser,
         }))
       });
   };
@@ -40,6 +41,7 @@ export default withStyles(styles)(class App extends Component {
               <Switch>
                 <Provider value={user}>
                   <Route path='/' exact component={Home} />
+                  <Route path='/users' exact component={Users} />
                 </Provider>
               </Switch>
           }
