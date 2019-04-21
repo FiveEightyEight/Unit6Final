@@ -22,7 +22,7 @@ export default withStyles(styles)(props => {
                 {
                     (image) ?
                         <ListItemAvatar>
-                            <Avatar alt={username} src="/static/images/avatar/1.jpg" />
+                            <Avatar alt={username} src={image} />
                         </ListItemAvatar>
                         :
                         <ListItemIcon children={<Person />} />
