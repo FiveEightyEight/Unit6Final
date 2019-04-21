@@ -59,6 +59,21 @@ ShowRouter.get('/all/genre/:genre_id', (req, res) => {
         });
 });
 
+ShowRouter.get('/all/comments/:show_id', (req, res) => {
+    const { show_id } = req.params;
+    ShowServices.getShowWithComments(show_id)
+        .then(data => {
+            res.status(200)
+                .json(data);
+        })
+        .catch(err => {
+            res.status(400)
+                .json({
+                    message: 'error fetching all show data with comments',
+                });
+        });
+});
+
 ShowRouter.get('/:id', (req, res, next) => {
     const { id } = req.params;
     if (!id.match(/[0-9]/g))

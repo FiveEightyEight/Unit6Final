@@ -14,6 +14,17 @@ const getAllShowsWithUsers = () => {
     ON users.id = shows.user_id;`);
 };
 
+const getShowWithComments = (show_id) => {
+    return db.any(`
+    SELECT  shows.user_id AS show_user, *
+    FROM shows
+    FULL OUTER JOIN comments
+    ON shows.id = comments.show_id
+    WHERE shows.id = $[show_id];`, {
+        show_id
+    });
+};
+
 const byGenre = (genre) => {
     return db.any(`
     SELECT * FROM shows
@@ -67,4 +78,5 @@ module.exports = {
     byUser,
     getAllShows,
     getAllShowsWithUsers,
+    getShowWithComments,
 };
