@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Home, NavBar } from './components';
-import { Profile, Users } from './containers';
+import { Profile, Users, SwitchUser } from './containers';
 import { Route, Switch } from 'react-router-dom';
 import { Provider } from './contexts/User';
 import userService from './services/users'
@@ -43,6 +43,7 @@ export default withStyles(styles)(class App extends Component {
                   <Route path='/' exact component={Home} />
                   <Route path='/users' exact component={Users} />
                   <Route path='/user/:id' exact component={Profile} />
+                  <Route path='/switch/:id' exact component={SwitchUser} />
                 </Provider>
               </Switch>
           }
