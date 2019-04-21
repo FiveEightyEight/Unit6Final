@@ -122,7 +122,6 @@ export default withStyles(styles)(class ShowProfile extends Component {
         const { show, genres, users, comment } = this.state;
         const username = (show) ? this.idMatch(show.user_id, 'username', users) : null;
         const comments = (show) ? show.comments : null;
-        console.log(comments)
         return (
 
             <>
