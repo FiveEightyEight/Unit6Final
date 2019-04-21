@@ -1,5 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 import { Avatar, List, ListItemIcon, ListItem, ListItemText, ListItemAvatar, Typography } from '@material-ui/core/';
 import { Person } from '@material-ui/icons/';
 
@@ -12,10 +13,14 @@ const styles = theme => ({
     inline: {
         display: 'inline',
     },
+    link: {
+        textDecoration: 'none',
+        color: 'black',
+    },
 });
 
 export default withStyles(styles)(props => {
-    const { classes, image, username, body } = props;
+    const { classes, image, username, user_id, body } = props;
     return (
         <List className={classes.root}>
             <ListItem alignItems="flex-start">
@@ -30,9 +35,11 @@ export default withStyles(styles)(props => {
                 <ListItemText
                     primary={body}
                     secondary={
-                        <Typography component="span" className={classes.inline} color="textPrimary">
-                            {username}
-                        </Typography>
+                        <Link to={'/user/' + user_id} className={classes.link}>
+                            <Typography component="span" className={classes.inline} color="textPrimary">
+                                {username}
+                            </Typography>
+                        </Link>
                     }
                 />
             </ListItem>

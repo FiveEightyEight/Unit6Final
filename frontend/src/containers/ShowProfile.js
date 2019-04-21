@@ -122,6 +122,7 @@ export default withStyles(styles)(class ShowProfile extends Component {
         const { show, genres, users, comment } = this.state;
         const username = (show) ? this.idMatch(show.user_id, 'username', users) : null;
         const comments = (show) ? show.comments : null;
+        console.log(comments)
         return (
 
             <>
@@ -177,6 +178,7 @@ export default withStyles(styles)(class ShowProfile extends Component {
                                         return (
                                             <Grid item xs key={i}>
                                                 <Comments username={this.idMatch(user_id, 'username', users)}
+                                                    user_id={user_id}
                                                     body={comment_body}
                                                     image={null}
                                                 />
