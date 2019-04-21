@@ -36,7 +36,7 @@ export default (class SwitchUser extends Component {
     };
 
     render() {
-        const { redirect, success} = this.state;
+        const { redirect, success } = this.state;
         return (
             <>
                 {
