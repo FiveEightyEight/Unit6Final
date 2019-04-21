@@ -28,10 +28,10 @@ const post = (route, data) => {
     });
 };
 
-const fixLS = () => {
+const fixLS = (setUser = true) => {
     return allUsers()
         .then(({ data }) => {
-            localStorage.setItem('showUser', JSON.stringify(data[0]));
+            if (setUser) localStorage.setItem('showUser', JSON.stringify(data[0]));
             localStorage.setItem('showUsers', JSON.stringify(data));
             return init();
         });
@@ -56,17 +56,46 @@ const getGenres = () => {
     });
 };
 
-const init = () => {
+const switchUser = (id) => {
+    const showUsers = JSON.parse(localStorage.getItem('showUsers'));
+    for (let user of showUsers) {
+        if ( parseInt(id) === user.id){
+            localStorage.setItem('showUser', JSON.stringify(user));
+            return true
+        };
+    };
+    return false;
+};
+
+const init = (id = null) => {
+    /*
+        init will always check localStorage to make sure it's populated
+        this is assuming that the database has valid entries. 
+        TO DO:
+        if nothing exists in the DB, populate the DB with default info, then call init again.
+    */
     return new Promise((resolve, reject) => {
         const showUser = localStorage.getItem('showUser');
         const showUsers = localStorage.getItem('showUsers');
         const showGenres = localStorage.getItem('showGenres');
         if (showUser === 'undefined' || !showUser || showUsers === 'undefined' || !showUsers) return resolve(fixLS());
+        if (showUser !== 'undefined' && showUser && (showUsers === 'undefined' || !showUsers)) return resolve(fixLS(false));       
         if (showGenres === 'undefined' || !showGenres) genres();
-        return resolve({
-            showUser: JSON.parse(showUser),
-            showUsers: JSON.parse(showUsers)
-        });
+        if (!id) {
+            return resolve({
+                showUser: JSON.parse(showUser),
+                showUsers: JSON.parse(showUsers)
+            });
+        } else {
+            /*
+                If false is returned, user was not switched.
+                Else if true is returned, user was successfuly updated in Local storage.
+            */
+            if (!id.match(/[0-9]/g)) {
+                return reject(false);
+            };
+            return resolve(switchUser(id));
+        };
     });
 };
 
