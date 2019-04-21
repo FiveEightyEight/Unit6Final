@@ -10,6 +10,9 @@ const styles = {
     paper: {
         padding: '50px',
     },
+    header: {
+        paddingBottom: '50px',
+    },
 };
 
 export default withStyles(styles)(class User extends Component {
@@ -29,7 +32,9 @@ export default withStyles(styles)(class User extends Component {
             >
                 <Paper className={classes.paper}>
                     
-                        <Grid item xs={12}>
+                        <Grid item xs={12} 
+                        className={classes.header}
+                        >
                             <Typography variant='h4'
                             align='center'
                             >
@@ -41,6 +46,18 @@ export default withStyles(styles)(class User extends Component {
                                 Your user ID is: {id}
                             </Typography>
                         </Grid>
+                        {
+                            (users.length > 0)? 
+                            <Grid item xs={12}>
+                            <Typography variant='h6'
+                            align='left'
+                            >
+                                Masterlist of All Users:
+                            </Typography>
+                            </Grid>
+                            :
+                            <></>
+                        }
                         <Grid item>
                             <List list={users} userID={parseInt(id)}/>
                         </Grid>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Divider, List, ListItem, ListItemText, ListItemIcon } from '@material-ui/core/';
+import { Divider, Grid, List, ListItem, ListItemText, ListItemIcon } from '@material-ui/core/';
 import { Person } from '@material-ui/icons/';
 import { Link } from 'react-router-dom';
 
@@ -27,14 +27,24 @@ export default withStyles(styles)(props => {
                     return (
                         <React.Fragment key={i}>
                             <ListItem>
-                                <Link to={'user/' + id} className={classes.link}>
-                                    <ListItemText primary={username} />
-                                </Link>
-                                {(userID === id) ? <></> : (
-                                    <Link to={'switch/' + id} className={classes.link}>
-                                        <ListItemIcon children={<Person />} />
-                                    </Link>
-                                )}
+                                <Grid container
+                                    direction="row"
+                                    justify="space-between"
+                                    alignItems="center"
+                                >
+                                    <Grid item xs={11}>
+                                        <Link to={'user/' + id} className={classes.link}>
+                                            <ListItemText primary={username} />
+                                        </Link>
+                                    </Grid>
+                                    <Grid item xs={1}>
+                                        {(userID === id) ? <></> : (
+                                            <Link to={'switch/' + id} className={classes.link}>
+                                                <ListItemIcon children={<Person />} />
+                                            </Link>
+                                        )}
+                                    </Grid>
+                                </Grid>
                             </ListItem>
                             {(arr.length - 1 === i) ? <></> : <Divider />}
                         </React.Fragment>
