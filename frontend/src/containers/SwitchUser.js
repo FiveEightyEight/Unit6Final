@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
-import { CircularProgress, Grid, Typography } from '@material-ui/core/';
+import { CircularProgress } from '@material-ui/core/';
 import userService from '../services/users'
 
-const styles = {
-};
 
-export default withStyles(styles)(class SwitchUser extends Component {
+export default (class SwitchUser extends Component {
     state = {
         success: null,
         redirect: false,
@@ -24,7 +21,7 @@ export default withStyles(styles)(class SwitchUser extends Component {
         };
         userService.init(id)
         .then( data => {
-            const {success, showUser, showUsers} = data;
+            const {success, showUser} = data;
             if (success) {
                 this.setState({
                     success,
@@ -39,8 +36,7 @@ export default withStyles(styles)(class SwitchUser extends Component {
     };
 
     render() {
-        const { classes } = this.props;
-        const { redirect, success, id} = this.state;
+        const { redirect, success} = this.state;
         return (
             <>
                 {
