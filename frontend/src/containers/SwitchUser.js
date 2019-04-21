@@ -23,11 +23,12 @@ export default withStyles(styles)(class SwitchUser extends Component {
             return;
         };
         userService.init(id)
-        .then( success => {
+        .then( data => {
+            const {success, showUser, showUsers} = data;
             if (success) {
                 this.setState({
                     success,
-                    id,
+                    id: showUser.id,
                 })
             }
         })

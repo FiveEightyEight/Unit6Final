@@ -61,10 +61,10 @@ const switchUser = (id) => {
     for (let user of showUsers) {
         if ( parseInt(id) === user.id){
             localStorage.setItem('showUser', JSON.stringify(user));
-            return true
+            return {success: true, showUser: user, showUsers}
         };
     };
-    return false;
+    return {success: false, showUser: null, showUsers};
 };
 
 const init = (id = null) => {
