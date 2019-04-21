@@ -14,6 +14,7 @@ const styles = {
 
 export default withStyles(styles)(class User extends Component {
     state = {
+        currentUser: null,
         users: null,
     };
 
@@ -51,21 +52,30 @@ export default withStyles(styles)(class User extends Component {
 
     componentDidMount() {
         userService.init()
-            .then(({ showUsers }) => {
+            .then(({ showUser, showUsers }) => {
                 this.setState(() => ({
+                    currentUser: showUser,
                     users: showUsers,
                 }));
             });
     };
 
+    componentWillUnmount() {
+        this.setState(() => ({
+            user: null,
+            users: null,
+        }))
+    };
+
+
     render() {
-        const { users } = this.state;
+        const { currentUser, users } = this.state;
         return (
             <Consumer>
                 {
                     (user) => {
                         if (!user) return <Redirect to="/" />
-                        else return (!users) ? <CircularProgress /> : this.renderList(user, users);
+                        else return (!users) ? <CircularProgress /> : this.renderList(currentUser, users);
                     }
                 }
             </Consumer>
