@@ -38,7 +38,7 @@ const fixLS = () => {
 };
 
 const genres = (def = false) => {
-    get('genres/all')
+    return get('genres/all')
         .then(({ data }) => {
             localStorage.setItem('showGenres', JSON.stringify(data));
             if (def) return getGenres();
@@ -48,10 +48,10 @@ const genres = (def = false) => {
 
 const getGenres = () => {
     return new Promise((resolve, reject) => {
-        const genres = localStorage.getItem('showGenres');
-        if (genres === 'undefined' || !genres) return resolve(genres(true));
+        const showGenres = localStorage.getItem('showGenres');
+        if (showGenres === 'undefined' || !showGenres) return resolve(genres(true));
         return resolve({
-            genres: JSON.parse(genres),
+            genres: JSON.parse(showGenres),
         });
     });
 };
@@ -60,9 +60,9 @@ const init = () => {
     return new Promise((resolve, reject) => {
         const showUser = localStorage.getItem('showUser');
         const showUsers = localStorage.getItem('showUsers');
-        const genres = localStorage.getItem('showGenres');
+        const showGenres = localStorage.getItem('showGenres');
         if (showUser === 'undefined' || !showUser || showUsers === 'undefined' || !showUsers) return resolve(fixLS());
-        if (genres === 'undefined' || !genres) genres();
+        if (showGenres === 'undefined' || !showGenres) genres();
         return resolve({
             showUser: JSON.parse(showUser),
             showUsers: JSON.parse(showUsers)
@@ -75,5 +75,5 @@ export default {
     init,
     get,
     post,
-    genres
+    getGenres
 };
