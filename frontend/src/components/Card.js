@@ -23,7 +23,6 @@ const styles = {
 
 export default withStyles(styles)(props => {
     const { classes, img_url, title, genre, users } = props;
-    console.log('card users', users);
     return (
         <>
             <Grid container>
@@ -79,7 +78,7 @@ export default withStyles(styles)(props => {
                                                         </Grid>
                                                         {
                                                             users.map((e, i) => {
-                                                                const { show_id, user_id, username } = e;
+                                                                const { show_id, username } = e;
                                                                 return (
                                                                     <Grid item xs key={i} className={classes.names}>
                                                                         <Link to={'/show/' + show_id} className={classes.link}>
