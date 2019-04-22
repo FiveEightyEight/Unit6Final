@@ -99,10 +99,37 @@ const init = (id = null) => {
     });
 };
 
+const showBuilder = ( allShows, genres) => {
+    const genMap = genres.reduce( (acc, genre) => {
+        const {id, genre_name} = genre;
+        if (!acc[id]){
+            acc[id] = genre_name;
+        }
+        return acc;
+    }, {});
+    const shows = allShows.reduce( (acc, show, i)=> {
+        const {show_id, title, genre_id, username, img_url, user_id} = show;
+            if (acc[title]) {
+                acc[title].users.push({username, show_id, user_id})
+            } else {
+                acc[title] = {
+                    title,
+                    img_url,
+                    genre_id,
+                    genre: genMap[genre_id],
+                    users: [{username, show_id, user_id}]
+                }
+            };
+            return acc;
+    }, {});
+    return { shows, genMap, genres };
+};
+
 export default {
     fixLS,
     init,
     get,
     post,
-    getGenres
+    getGenres,
+    showBuilder
 };
