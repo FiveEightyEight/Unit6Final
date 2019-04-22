@@ -1,6 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid, Paper, Typography, CardMedia } from '@material-ui/core/';
+import { Link } from 'react-router-dom';
 
 const styles = {
     header: {
@@ -11,10 +12,18 @@ const styles = {
         objectFit: 'contain',
         padding: '10px',
     },
+    link: {
+        textDecoration: 'none',
+        color: 'black',
+    },
+    users: {
+        margin: '5px',
+    }
 };
 
 export default withStyles(styles)(props => {
-    const { classes, img_url, title, genre } = props;
+    const { classes, img_url, title, genre, users } = props;
+    console.log('card users', users);
     return (
         <>
             <Grid container>
@@ -50,6 +59,48 @@ export default withStyles(styles)(props => {
                                             {genre}
                                         </Typography>
                                     </Grid>
+                                    {
+                                        (users) ?
+                                            <>
+                                                <hr />
+                                                <Grid item xs={12}>
+                                                    <Grid container
+                                                        direction="row"
+                                                        justify="flex-start"
+                                                        alignItems="center"
+                                                    >
+                                                        <Grid item xs={12}>
+                                                            <Typography
+                                                                variant='h6'
+                                                                align='left'
+                                                            >
+                                                                Who's Watching?
+                                                        </Typography>
+                                                        </Grid>
+                                                        {
+                                                            users.map((e, i) => {
+                                                                const { show_id, user_id, username } = e;
+                                                                return (
+                                                                    <Grid item xs key={i} className={classes.names}>
+                                                                        <Link to={'/show/' + show_id} className={classes.link}>
+                                                                            <Typography
+                                                                                variant='body2'
+                                                                                align='left'
+                                                                            >
+                                                                                {username}
+                                                                            </Typography>
+                                                                        </Link>
+                                                                    </Grid>
+                                                                )
+                                                            })
+                                                        }
+
+                                                    </Grid>
+                                                </Grid>
+                                            </>
+                                            :
+                                            <></>
+                                    }
                                 </Grid>
                             </Grid>
                         </Grid>
