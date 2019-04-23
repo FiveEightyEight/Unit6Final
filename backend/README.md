@@ -41,6 +41,9 @@ ___
 - **[GET]** `/shows/all/genre/:genre`
     > Retuns list of all shows in database matching genre id (_number_)
 
+- **[GET]** `/shows/all/comments/:show_id`
+    > Retuns list of all shows comments in database matching genre id (_number_). This includes user_ids for each comment.
+
 - **[GET]** `/shows/:id`
     > Returns show, if any, based on show id (_number string_)
 
