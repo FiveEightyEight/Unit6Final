@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Home, NavBar } from './components';
-import { Profile, Users, ShowProfile, Shows, SwitchUser } from './containers';
+import { PostShow, Profile, ShowProfile, Shows, SwitchUser, Users } from './containers';
 import { Route, Switch } from 'react-router-dom';
 import { Provider } from './contexts/User';
 import userService from './services/users'
 
 const styles = {
   body: {
-    marginTop: '66px',
+    marginTop: '120px',
   }
 }
 
@@ -36,18 +36,21 @@ export default withStyles(styles)(class App extends Component {
         <div className={classes.body}>
           {
             (!user) ?
-                <Route path='/' exact render={()=><Home spinner={true}/>} />
+              <Route path='/' exact render={() => <Home spinner={true} />} />
               :
-              <Switch>
-                <Provider value={user}>
+
+              <Provider value={user}>
+                <Switch>
                   <Route path='/' exact component={Home} />
                   <Route path='/users' exact component={Users} />
+                  <Route path='/user/post' exact component={PostShow} />
                   <Route path='/user/:id' exact component={Profile} />
                   <Route path='/switch/:id' exact component={SwitchUser} />
                   <Route path='/show/:id' exact component={ShowProfile} />
                   <Route path='/shows' exact component={Shows} />
-                </Provider>
-              </Switch>
+                </Switch>
+              </Provider>
+
           }
         </div>
       </>
