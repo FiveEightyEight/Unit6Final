@@ -2,7 +2,7 @@ import React from 'react';
 import { TextField } from '@material-ui/core/';
 
 export default ( props => {
-    const {name, handleChange, onKeyPress, placeholder, value} = props
+    const {name, error, handleChange, onKeyPress, placeholder, value} = props
    return (
         <TextField
           id="filled-full-width"
@@ -18,6 +18,7 @@ export default ( props => {
           InputLabelProps={{
             shrink: true,
           }}
+          error={error}
         />
     );
 });
