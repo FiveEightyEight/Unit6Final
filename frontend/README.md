@@ -4,16 +4,16 @@ ___
 
 ||Table Of Contents|
 |:--|:----:|
-|1| [Home](https://github.com/FiveEightyEight/Unit6Final/blob/FE_Containers%26Components/frontend/README.md#home)|
-|2| [Users](https://github.com/FiveEightyEight/Unit6Final/blob/FE_Containers%26Components/frontend/README.md#users)|
-|3| [Watchlists](https://github.com/FiveEightyEight/Unit6Final/blob/FE_Containers%26Components/frontend/README.md#navigating-to-the-users-page-displays-a-list-of-all-users-on-the-platform-clicking-on-the-person-icon-next-to-the-username-allows-for-you-to-switch-between-accounts)|
-|4| [Show Profile](https://github.com/FiveEightyEight/Unit6Final/blob/FE_Containers%26Components/frontend/README.md#show-profile)|
-|5| [TV Shows](https://github.com/FiveEightyEight/Unit6Final/blob/FE_Containers%26Components/frontend/README.md#tv-shows)|
-|6| [Adding](https://github.com/FiveEightyEight/Unit6Final/blob/FE_Containers%26Components/frontend/README.md#adding)|
+|1| [Home](https://github.com/FiveEightyEight/Unit6Final/tree/master/frontend#home)|
+|2| [Users](https://github.com/FiveEightyEight/Unit6Final/tree/master/frontend#users)|
+|3| [Watchlists](https://github.com/FiveEightyEight/Unit6Final/tree/master/frontend#navigating-to-the-users-page-displays-a-list-of-all-users-on-the-platform-clicking-on-the-person-icon-next-to-the-username-allows-for-you-to-switch-between-accounts)|
+|4| [Show Profile](https://github.com/FiveEightyEight/Unit6Final/tree/master/frontend#show-profile)|
+|5| [TV Shows](https://github.com/FiveEightyEight/Unit6Final/tree/master/frontend#tv-shows)|
+|6| [Adding](https://github.com/FiveEightyEight/Unit6Final/tree/master/frontend#adding)|
 ___
 ## **Home** 
 
-> ![Home Screen Image](https://lh3.googleusercontent.com/6-vHUNxM4dmGw0rao_ch6nhF6VWCT86duMkM3cRRtt5ONu7rqsm7eDdQQUooOhuohTv1eFzSuU6jtRdQsH36PtQ3-3ZLI-ledonrFETal1pU-4sVuujfr1pS2NAkZ9BVjNa9b9gR4Lnm0XCq7ENQpM9PogUvw7AsQM3hfu-WDm6pUebuFFzTiNzPHsW3V5o6ydLY1hAOloj6-qCvLs7XUQOrAUOFa1Ydx1jof4xj-fJXwK3zAfkEkqDFXYLVnv6tISFfSvWgpi5EYNoPeULC9e0NhCMgL22iZzGO4HyUzmDR1pHX85fdzSC-lVx9MtYo4G6rxZ9_8IZvJmoj74WYh-XU5EWQMkPO6rcjfL6vm2gi-jmZF39IB9NvSmeIpZFfSE8bZCz2rlExqAO-a49roFrua2JSYPBLssFUXHxqCRnG6Gj22VqMEuimYiIxrWbPRynOy4N-FdUBhppRK5hjJu1WfRlGNfxqvhDzgS43tBfIuSplxrLWVk5H6afg9SnTbaJCQgk_j6sa1YCw75rg27Jdigowmnm3nCHgUl57hnXAklP4LBXd1tyAqRn1Qt12I4k1kSU2dA457QK7bTiALymvguqU3ajLsT7dLFHZaOJpeqUWx00ezLbLoAp_g4j-o0pMT1ok_WJFb7_tzgh7LCdvJYOwU0g=w260-h1282-no)
+> ![Home Screen Image](https://lh3.googleusercontent.com/S0jmd5veRAKd0UwjNUbhnQmlqYtkz8zMrlmx7-TizYaSdSYklqW4-7d8nf7KP9nDgxwBoWaiMNyGSJTB7_RxiM4XQnCPbUhF7ghNj7MWs8JObXF9tuAdTLsFshmYduKWW11ny8ry768xJ2c4_g15hB1Fwr6ZW8iCo0YKnR83PV6OWwdzN6ZXTpZPXSiYVXmBrlvBBpH2JrWDWBannVi40u62vKvltOebRNOVSPvyb_YM3tHA59ntvDLw4OuKCPshGcpFsK9yIWeD_V9c5x3S6Rhy4DSdtPwrQb-AlrsWPYKOeXEqHg6PIa_FQLvIE50vJYCb6RFgrCcKTPLGgX5WZAUnoy6KQiaQyJil93uceJuHfoSkLbkJN2GkbM4zTLVa8Cyk4N5qWkbb5GILo_nQq7Nc22ggU69S7R0n5B5dUlpAXDwVpeW4riKmLc_bTZG5E8wRcUQ_FY93BkIMkJ19wuQmtZvrjMMRhnEeCdyvTA8FfD_DMDPYvHiud7Abi-mNGxrdJb6eiytHjHgV8g9kM091jCyIzxd6r1W-5I7feFqT-d6OE4XDVwsApRCwfF1s9Kst0FTpXnX0jm_CP4UliHY0Lr7_4vzaDoDoNhTQa4c85oQkGuowbBJ___pI98eng0xUZ-Zcol4Pa88qV2r9EqfBkjU1vv2xs5lXe-fXAg_YQ5MLE4T_VOq-dc4HS77BUb5MrV3t7q1j4Cln4tL0gl1c=w260-h833-no)
 
 #### TV Show Watchlist home page is what a users sees upon first visit to the website. Users are greeted with a simple banner. A navigation bar at the top of the page is available to navigate to the other parts of the website. 
 ___
