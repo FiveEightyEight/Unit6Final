@@ -1,11 +1,11 @@
-# TV Show Watchlist API
+# **TV Show Watchlist API**
 
 ||Table Of Contents|
 |:--|:----:|
-|1| [Users](https://github.com/FiveEightyEight/Unit6Final/tree/BE_Routes%26Services/backend#users)|
-|2| [Genres](https://github.com/FiveEightyEight/Unit6Final/tree/BE_Routes%26Services/backend#genres)|
-|3| [Shows](https://github.com/FiveEightyEight/Unit6Final/tree/BE_Routes%26Services/backend#shows)|
-|4| [Comments](https://github.com/FiveEightyEight/Unit6Final/tree/BE_Routes%26Services/backend#comments)|
+|1| [Users](https://github.com/FiveEightyEight/Unit6Final/tree/master/backend#users)|
+|2| [Genres](https://github.com/FiveEightyEight/Unit6Final/tree/master/backend#genres)|
+|3| [Shows](https://github.com/FiveEightyEight/Unit6Final/tree/master/backend#shows)|
+|4| [Comments](https://github.com/FiveEightyEight/Unit6Final/tree/master/backend#comments)|
 
 ___
 ## **/users**
